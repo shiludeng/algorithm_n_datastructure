@@ -8,6 +8,12 @@ using namespace std;
 
 const int MAX_LEN = 10000;
 
+/*
+ * Run Status: Accepted
+ * Program Runtime:
+ * 	small data: 4ms
+ *	large data: 252ms
+ */
 class Solution {
 private:
 	void initPalindrome(vector<vector<bool> > &p, string s) {

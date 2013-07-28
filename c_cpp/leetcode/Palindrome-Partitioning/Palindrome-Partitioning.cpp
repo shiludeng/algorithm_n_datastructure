@@ -8,6 +8,12 @@ using namespace std;
 
 const int MAX_LEN = 10000;
 
+/*
+ * Run Status: Accepted
+ * Program Runtime:
+ * 	small data: 8ms
+ *	large data: 52ms
+ */
 class Solution {
 
 	struct Data {
