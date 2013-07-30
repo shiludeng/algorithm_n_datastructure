@@ -12,8 +12,8 @@ const int MAX_LEN = 10000;
 /*
  * Run Status: Accepted
  * Program Runtime:
- * 	small data: 4ms
- *	large data: 100ms
+ * 	small data: 12ms
+ *	large data: 88ms
  */
 class Solution {
 
@@ -69,15 +69,10 @@ public:
 			return;
 
 		vector<vector<bool> > visited(height);
-		vector<Data> flipPoints;
-		flipPoints.clear();
 		for (int i = 0; i < height; i++) {
 			visited[i].resize(width);
 			for (int j = 0; j < width; j++) {
 				visited[i][j] = false;
-				if (board[i][j] == 'O') {
-					flipPoints.push_back(Data(i, j));
-				}
 			}
 		}
 
@@ -95,10 +90,10 @@ public:
 				bfs(board, visited, i, width - 1);
 		}
 
-		for (int i = 0; i < flipPoints.size(); i++) {
-			Data point = flipPoints[i];
-			if (!visited[point.row][point.col]) {
-				board[point.row][point.col] = 'X';
+		for(int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if (!visited[i][j] && board[i][j] == 'O')
+					board[i][j] = 'X';
 			}
 		}
 	}
