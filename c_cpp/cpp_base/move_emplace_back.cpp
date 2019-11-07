@@ -20,6 +20,12 @@ public:
     }
 };
 
+class A {
+
+private:
+    TestMoveConstructor test;
+};
+
 int main() {
     std::vector<TestMoveConstructor> test_vec;
     // avoid re-allocating
@@ -38,5 +44,12 @@ int main() {
     
     // only another constructor
     test_vec.emplace_back(1);
+
+    std::cout << "\ntest implicitly-defined move constructor:\n";
+    std::vector<A> a_vec;
+    a_vec.reserve(10);
+
+    // call TestMoveConstructor move-constructor
+    a_vec.push_back(A());
     return 0;
 }
